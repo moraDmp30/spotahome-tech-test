@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'HomeController@index',
+    'as' => 'index',
+]);
+
+Route::get('/get-properties', [
+    'uses' => 'HtmlPropertyController@getProperties',
+    'as' => 'get-properties',
+    'middleware' => ['ajax'],
+]);
+
+Route::get('/download-properties', [
+    'uses' => 'DownloadPropertyController@downloadProperties',
+    'as' => 'download-properties',
+]);
