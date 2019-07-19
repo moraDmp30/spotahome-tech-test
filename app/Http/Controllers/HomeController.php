@@ -21,8 +21,8 @@ class HomeController extends Controller
         $defaultField = config('spotahome.default-sort-field');
         $defaultDirection = config('spotahome.default-sort-direction');
 
-        // $repo = app()->make('Spotahome\Repositories\Property\PropertyRepository');
-        // $repo->getProperties([]);
+        $repo = app()->make('Spotahome\Repositories\Property\PropertyRepository');
+        $repo->getProperties([]);
 
         return view('home', compact('defaultField', 'defaultDirection'));
     }

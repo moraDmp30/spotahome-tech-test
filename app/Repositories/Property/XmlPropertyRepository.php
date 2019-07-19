@@ -17,12 +17,24 @@ class XmlPropertyRepository implements PropertyRepository
         $properties = [];
 
         foreach ($xml as $propertyXml) {
+            // Let's take first picture as main image
+            $image = [];
+            $pictures = $propertyXml->pictures;
+            if (!empty($pictures)) {
+                $picture = $pictures->children()[0];
+                if (!is_null($picture) && !empty($picture->picture_url->__toString()) && !empty($picture->picture_title->__toString())) {
+                    $image = [
+                        'src' => $picture->picture_url->__toString(),
+                        'alt' => $picture->picture_title->__toString(),
+                    ];
+                }
+            }
             $properties[] = [
                 'id' => $propertyXml->id->__toString(),
                 'title' => $propertyXml->title->__toString(),
                 'link' => $propertyXml->url->__toString(),
                 'city' => $propertyXml->city->__toString(),
-                // 'image' => $propertyXml->main_image->__toString(),
+                'image' => $image,
             ];
         }
 

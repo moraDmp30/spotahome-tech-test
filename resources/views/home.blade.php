@@ -23,7 +23,7 @@
                                 <tr>
                                     @foreach (config('spotahome.fields') as $field)
                                         @if (Arr::get($field, 'sortable', false))
-                                            <th class="sortable-link {{ $defaultField == Arr::get($field, 'id', '') ? ($defaultDirection == config('spotahome.directions.asc') ? 'sortable-link-asc' : 'sortable-link-desc') : '' }}" data-field="{{ Arr::get($field, 'text', '') }}">{{ Arr::get($field, 'text', '') }}</th>
+                                            <th class="sortable-link {{ $defaultField == Arr::get($field, 'id', '') ? ($defaultDirection == config('spotahome.directions.asc') ? 'sortable-link-asc' : 'sortable-link-desc') : '' }}" data-field="{{ Arr::get($field, 'id', '') }}">{{ Arr::get($field, 'text', '') }}</th>
                                         @else
                                             <th>{{ Arr::get($field, 'text', '') }}
                                         @endif  

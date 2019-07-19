@@ -5,32 +5,35 @@ return [
     'default-sort-field' => 'id',
     'default-sort-direction' => 'asc',
     'fields' => [
-        [
+        'id' => [
             'id' => 'id',
             'text' => 'ID',
             'sortable' => true,
         ],
-        [
+        'title' => [
             'id' => 'title',
             'text' => 'Title',
             'sortable' => true,
         ],
-        [
+        'link' => [
             'id' => 'link',
             'text' => 'Link',
             'sortable' => true,
             'is-link' => true,
         ],
-        [
+        'city' => [
             'id' => 'city',
             'text' => 'City',
             'sortable' => true,
         ],
-        // [
-        //     'id' => 'image',
-        //     'text' => 'Image',
-        //     'sortable' => false,
-        // ],
+        'image' => [
+            'id' => 'image',
+            'text' => 'Image',
+            'sortable' => false,
+            'is-image' => true,
+            'src-field' => 'src',
+            'alt-field' => 'alt',
+        ],
     ],
     'directions' => [
         'asc' => 'asc',
