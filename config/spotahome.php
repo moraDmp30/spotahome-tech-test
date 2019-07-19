@@ -4,6 +4,8 @@ return [
     'source' => 'https://feeds.spotahome.com/mitula-UK-en.xml',
     'default-sort-field' => 'id',
     'default-sort-direction' => 'asc',
+    'default-page' => 1,
+    'page-size' => 100,
     'fields' => [
         'id' => [
             'id' => 'id',

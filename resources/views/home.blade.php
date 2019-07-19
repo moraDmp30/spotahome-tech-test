@@ -13,29 +13,15 @@
                             <form method="GET" action="{{ route('download-properties') }}" id="properties-form">
                                 <input type="hidden" value="{{ $defaultField }}" name="sort_field" />
                                 <input type="hidden" value="{{ $defaultDirection }}" name="sort_direction" />
-                                <button type="submit" class="btn btn-primary float-right">Download as JSON</button>
+                                <input type="hidden" value="{{ $defaultPage }}" name="page" />
+                                <button type="button" id="download-properties" class="btn btn-primary float-right">Download as JSON</button>
                             </form>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table id="properties-table" class="table table-bordered table-striped" data-url="{{ route('get-properties') }}">
-                            <thead>
-                                <tr>
-                                    @foreach (config('spotahome.fields') as $field)
-                                        @if (Arr::get($field, 'sortable', false))
-                                            <th class="sortable-link {{ $defaultField == Arr::get($field, 'id', '') ? ($defaultDirection == config('spotahome.directions.asc') ? 'sortable-link-asc' : 'sortable-link-desc') : '' }}" data-field="{{ Arr::get($field, 'id', '') }}">{{ Arr::get($field, 'text', '') }}</th>
-                                        @else
-                                            <th>{{ Arr::get($field, 'text', '') }}
-                                        @endif  
-                                    @endforeach
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="{{ count(config('spotahome.fields')) }}">Fetching data...</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div id="properties-container" data-url="{{ route('get-properties') }}">
+                        <div class="alert alert-info">
+                            Fetching data...
+                        </div>
                     </div>
                 </div>
             </div>

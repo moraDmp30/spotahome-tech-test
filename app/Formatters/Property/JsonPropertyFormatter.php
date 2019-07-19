@@ -2,6 +2,8 @@
 
 namespace Spotahome\Formatters\Property;
 
+use Arr;
+
 class JsonPropertyFormatter implements PropertyFormatter
 {
     /**
@@ -9,7 +11,7 @@ class JsonPropertyFormatter implements PropertyFormatter
      */
     public function format($input): string
     {
-        $properties = $input;
+        $properties = Arr::get($input, 'items', []);
 
         return json_encode($properties);
     }
