@@ -44,4 +44,4 @@ To compile assets, you must run:
 
 ## Maintainers
 
-- Daniel Mora Pastor - mora@square1.io
+- Daniel Mora Pastor - dmora.1989@gmail.com
